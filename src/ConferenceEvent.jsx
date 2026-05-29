@@ -131,17 +131,17 @@ const ConferenceEvent = () => {
                   totalCost += item.cost * numberOfPeople;
                 }
             });
-    const totalCosts = {
-        venue: venueTotalCost,
-        av: avTotalCost,
-        meals: mealsTotalCost,
-        };
     }
         return totalCost;
       };
     const venueTotalCost = calculateTotalCost("venue");
     const avTotalCost = calculateTotalCost("av");
     const mealsTotalCost = calculateTotalCost("meals");
+    const totalCosts = {
+        venue: venueTotalCost,
+        av: avTotalCost,
+        meals: mealsTotalCost,
+        };
     const navigateToProducts = (idType) => {
         if (idType == '#venue' || idType == '#addons' || idType == '#meals') {
           if (showItems) { // Check if showItems is false
@@ -249,9 +249,21 @@ const ConferenceEvent = () => {
                                     <div className="text"> {item.name} </div>
                                     <div> ${item.cost} </div>
                                         <div className="addons_btn">
-                                            <button className="btn-warning" onClick={() => handleDecrementAvQauntity(index)}> &ndash; </button>
+                                            <button 
+                                            className="btn-warning" 
+                                            onClick={() => handleDecrementAvQuantity(index)}
+                                            > 
+                                            &ndash; 
+                                            </button>
+
                                             <span className="quantity-value">{item.quantity}</span>
-                                            <button className="btn-success" onClick={() => handleIncrementAvQauntity(index)}> &#43; </button>
+
+                                            <button 
+                                            className="btn-success" 
+                                            onClick={() => handleIncrementAvQuantity(index)}
+                                            > 
+                                            &#43; 
+                                            </button>
                                         </div>
                                     </div>
                                 ))}
